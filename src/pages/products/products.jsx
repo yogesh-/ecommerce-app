@@ -16,8 +16,6 @@ export const Products = () => {
     try {
       setLoad(true);
       const response = await axios.get("/api/products/");
-      console.log(response.data.products);
-      console.log("hello");
       setData(response.data.products);
       setLoad(false);
     } catch (error) {}
