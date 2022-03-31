@@ -9,9 +9,9 @@ const useFilter = () => useContext(FilterContext);
 const FilterProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducerFunc, {
     price: 5000,
-    categories: { Running: false, Workout: false, Tennis: false },
+    categories: { running: false, workout: false, tennis: false },
     rating: "",
-    sortby: "",
+    sortBy: "",
   });
   return (
     <FilterContext.Provider value={{ state, dispatch }}>

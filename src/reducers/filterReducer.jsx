@@ -24,7 +24,7 @@ const reducerFunc = (state, action) => {
     case "RATING":
       return {
         ...state,
-        rating: parseInt(action.value, 1),
+        rating: parseInt(action.value, 10),
       };
 
     case "LOW_TO_HIGH":
@@ -33,7 +33,7 @@ const reducerFunc = (state, action) => {
         sortBy: action.type,
       };
 
-    case "HIGHT_TO_LOW":
+    case "HIGH_TO_LOW":
       return {
         ...state,
         sortBy: action.type,
@@ -42,9 +42,9 @@ const reducerFunc = (state, action) => {
     case "CLEAR":
       return {
         price: 5000,
-        categories: { Running: false, Workout: false, Tennis: false },
+        categories: { running: false, workout: false, tennis: false },
         rating: "",
-        sortby: "",
+        sortBy: "",
       };
 
     default:

@@ -167,7 +167,7 @@ export const Filter = () => {
                 value="highToLow"
                 onChange={() => dispatch({ type: "HIGH_TO_LOW" })}
               />
-              Hight to Low
+              High to Low
             </label>
           </div>
         </div>
