@@ -22,4 +22,5 @@ export const categoryItems = (products, workout, tennis, running) => {
     );
     filterCategory.push(...newCategory);
   }
+  return filterCategory;
 };

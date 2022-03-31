@@ -78,13 +78,15 @@ export const Filter = () => {
           </div>
         </div>
 
+        {/* RATING */}
+
         <div className="filter-rating filter-styling">
           <p className="h3">Rating</p>
           <div className="radio">
             <label for="radio-1">
               <input
                 id="radio-1"
-                name="radio"
+                name="radio-rating"
                 type="radio"
                 checked={rating === 4}
                 value="4"
@@ -95,10 +97,10 @@ export const Filter = () => {
               4 stars & above
             </label>
 
-            <label for="radio-1">
+            <label for="radio-2">
               <input
-                id="radio-1"
-                name="radio"
+                id="radio-2"
+                name="radio-rating"
                 type="radio"
                 checked={rating === 3}
                 value="3"
@@ -109,10 +111,10 @@ export const Filter = () => {
               3 stars & above
             </label>
 
-            <label for="radio-1">
+            <label for="radio-3">
               <input
-                id="radio-1"
-                name="radio"
+                id="radio-3"
+                name="radio-rating"
                 type="radio"
                 checked={rating === 2}
                 value="2"
@@ -123,10 +125,10 @@ export const Filter = () => {
               2 stars & above
             </label>
 
-            <label for="radio-1">
+            <label for="radio-4">
               <input
-                id="radio-1"
-                name="radio"
+                id="radio-4"
+                name="radio-rating"
                 type="radio"
                 checked={rating === 1}
                 value="1"
@@ -139,13 +141,15 @@ export const Filter = () => {
           </div>
         </div>
 
+        {/* PRICE */}
+
         <div className="filter-sorting filter-styling">
           <p className="h3">Sort By</p>
           <div className="radio">
-            <label for="radio-2">
+            <label for="radio-sort-1">
               <input
-                id="radio-2"
-                name="radio2"
+                id="radio-sort-1"
+                name="radio-price"
                 type="radio"
                 checked={sortBy === "LOW_TO_HIGH"}
                 value="lowToHigh"
@@ -154,10 +158,10 @@ export const Filter = () => {
               Low to High
             </label>
 
-            <label for="radio-2">
+            <label for="radio-sort-2">
               <input
-                id="radio-2"
-                name="radio2"
+                id="radio-sort-2"
+                name="radio-price"
                 type="radio"
                 checked={sortBy === "HIGH_TO_LOW"}
                 value="highToLow"
