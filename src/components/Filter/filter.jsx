@@ -88,6 +88,9 @@ export const Filter = () => {
                 type="radio"
                 checked={rating === 4}
                 value="4"
+                onChange={(e) =>
+                  dispatch({ type: "RATING", value: e.target.value })
+                }
               />
               4 stars & above
             </label>
@@ -99,6 +102,9 @@ export const Filter = () => {
                 type="radio"
                 checked={rating === 3}
                 value="3"
+                onChange={(e) =>
+                  dispatch({ type: "RATING", value: e.target.value })
+                }
               />
               3 stars & above
             </label>
@@ -110,6 +116,9 @@ export const Filter = () => {
                 type="radio"
                 checked={rating === 2}
                 value="2"
+                onChange={(e) =>
+                  dispatch({ type: "RATING", value: e.target.value })
+                }
               />
               2 stars & above
             </label>
@@ -121,6 +130,9 @@ export const Filter = () => {
                 type="radio"
                 checked={rating === 1}
                 value="1"
+                onChange={(e) =>
+                  dispatch({ type: "RATING", value: e.target.value })
+                }
               />
               1 stars & above
             </label>
