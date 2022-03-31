@@ -16,6 +16,7 @@ import {
 export const Products = () => {
   const [data, setData] = useState([]);
   const [load, setLoad] = useState(false);
+  console.log(load);
 
   useEffect(() => {
     loader();
@@ -36,11 +37,12 @@ export const Products = () => {
   const getRatedItems = ratingItems(getPriceItems, state.rating);
   const getCategoryItems = categoryItems(
     getRatedItems,
-    state.categories.tennis,
     state.categories.workout,
+    state.categories.tennis,
     state.categories.running
   );
   const getFinalItems = sortItems(getCategoryItems, state.sortBy);
+  console.log(getFinalItems);
 
   return (
     <div id="page">

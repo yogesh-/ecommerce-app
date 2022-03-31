@@ -18,7 +18,7 @@ const reducerFunc = (state, action) => {
       return {
         ...state,
         ...state["categories"],
-        tennis: !state.categories.workout,
+        tennis: !state.categories.tennis,
       };
 
     case "RATING":

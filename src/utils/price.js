@@ -1,6 +1,5 @@
 export const priceItems = (products, price) => {
-  console.log(products);
   let abc = products.filter((item) => item.price <= price);
-  console.log(abc);
+  console.log("price slider output", abc);
   return abc;
 };
