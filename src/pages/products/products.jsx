@@ -19,7 +19,7 @@ export const Products = () => {
 
   useEffect(() => {
     loader();
-  }, []);
+  });
 
   const loader = async () => {
     try {
@@ -45,7 +45,7 @@ export const Products = () => {
 
   const getFinalItems = sortItems(getRatedItems, state.sortBy);
 
-  console.log("Final filter items", getFinalItems);
+  console.log("Final filter items", getFinalItems, load);
 
   return (
     <div id="page">
