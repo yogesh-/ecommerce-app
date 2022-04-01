@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Footer } from "../../components/footer/footer";
-import { Navbar } from "../../components/navbar/navbar";
+import { Footer, Navbar, Filter } from "../../components/index";
 import "./products.css";
-import { Filter } from "../../components/Filter/filter";
 import { useFilter } from "../../context/filtercontext";
 
 import {
@@ -18,10 +16,10 @@ export const Products = () => {
   const [load, setLoad] = useState(false);
 
   useEffect(() => {
-    loader();
+    dataFetch();
   });
 
-  const loader = async () => {
+  const dataFetch = async () => {
     try {
       setLoad(true);
       const response = await axios.get("/api/products/");
