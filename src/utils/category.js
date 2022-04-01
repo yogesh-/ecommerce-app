@@ -2,6 +2,7 @@ export const categoryItems = (products, workout, tennis, running) => {
   console.log("category input", products);
   const filterCategory = [];
   if (workout === false && tennis === false && running === false) {
+    console.log("category output default", products);
     return products;
   }
   if (workout) {
@@ -18,5 +19,5 @@ export const categoryItems = (products, workout, tennis, running) => {
     filterCategory.push(...newCategory);
   }
   console.log("category result", filterCategory);
-  return console.log("category result", filterCategory);
+  return filterCategory;
 };

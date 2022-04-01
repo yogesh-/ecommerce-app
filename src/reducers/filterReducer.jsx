@@ -5,20 +5,26 @@ const reducerFunc = (state, action) => {
     case "RUNNING":
       return {
         ...state,
-        ...state["categories"],
-        running: !state.categories.running,
+        categories: {
+          ...state["categories"],
+          running: !state.categories.running,
+        },
       };
     case "WORKOUT":
       return {
         ...state,
-        ...state["categories"],
-        workout: !state.categories.workout,
+        categories: {
+          ...state["categories"],
+          workout: !state.categories.workout,
+        },
       };
     case "TENNIS":
       return {
         ...state,
-        ...state["categories"],
-        tennis: !state.categories.tennis,
+        categories: {
+          ...state["categories"],
+          tennis: !state.categories.tennis,
+        },
       };
 
     case "RATING":

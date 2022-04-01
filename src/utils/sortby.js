@@ -10,4 +10,5 @@ export const sortItems = (products, sortBy) => {
     console.log("H2l SORT", qwe);
     return qwe;
   }
+  return products;
 };

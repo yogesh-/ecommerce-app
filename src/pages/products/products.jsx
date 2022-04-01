@@ -16,7 +16,6 @@ import {
 export const Products = () => {
   const [data, setData] = useState([]);
   const [load, setLoad] = useState(false);
-  console.log(load);
 
   useEffect(() => {
     loader();
@@ -27,6 +26,7 @@ export const Products = () => {
       setLoad(true);
       const response = await axios.get("/api/products/");
       setData(response.data.products);
+      console.log("api call data", data);
       setLoad(false);
     } catch (error) {}
   };
@@ -34,25 +34,28 @@ export const Products = () => {
   const { state } = useFilter();
 
   const getPriceItems = priceItems(data, state.price);
-  const getRatedItems = ratingItems(getPriceItems, state.rating);
   const getCategoryItems = categoryItems(
-    getRatedItems,
+    getPriceItems,
     state.categories.workout,
     state.categories.tennis,
     state.categories.running
   );
-  const getFinalItems = sortItems(getCategoryItems, state.sortBy);
-  console.log(getFinalItems);
+
+  const getRatedItems = ratingItems(getCategoryItems, state.rating);
+
+  const getFinalItems = sortItems(getRatedItems, state.sortBy);
+
+  console.log("Final filter items", getFinalItems);
 
   return (
     <div id="page">
       <Navbar />
       <Filter />
       <main>
-        h<p className="h2 prod-headline">Showing All Products...</p>
+        <p className="h2 prod-headline">Showing All Products...</p>
         <div className="product-listing-products flex-row-prod">
           {/* {getFinalItems.length > 0 && */}
-          {data.map((item, index) => {
+          {getFinalItems.map((item, index) => {
             return (
               <li key={index}>
                 <div className="card-badge">

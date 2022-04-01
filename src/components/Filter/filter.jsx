@@ -50,6 +50,7 @@ export const Filter = () => {
                 id="checkbox-1"
                 name="running"
                 type="checkbox"
+                value="running"
                 checked={running}
                 onChange={(e) => dispatch({ type: "RUNNING" })}
               />
@@ -60,6 +61,7 @@ export const Filter = () => {
                 id="checkbox-1"
                 name="workout"
                 type="checkbox"
+                value="workout"
                 checked={workout}
                 onChange={(e) => dispatch({ type: "WORKOUT" })}
               />
@@ -70,6 +72,7 @@ export const Filter = () => {
                 id="checkbox-1"
                 name="tennis"
                 type="checkbox"
+                value="tennis"
                 checked={tennis}
                 onChange={(e) => dispatch({ type: "TENNIS" })}
               />
