@@ -1,7 +1,8 @@
+import "./footer.css";
 
 export const Footer = () => {
   return (
-    <div class="footer-home flex-col">
+    <div class="footer-home flex-col bottom-static">
       <h1 class="h3">Created by Yogesh Gupta</h1>
       <div class="social" id="social">
         <a href="https://github.com/yogesh-">

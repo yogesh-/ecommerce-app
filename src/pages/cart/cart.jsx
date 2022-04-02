@@ -1,49 +1,104 @@
 import { Footer, Navbar } from "../../components/index";
 import { useCart } from "../../context/cartContext";
+import "./cart.css";
 
 export const Cart = () => {
   const { cartState } = useCart();
-  const mela = cartState.cartItems;
-  console.log(mela);
+  console.log(cartState, "hello");
+  console.log("string");
+  const cartData = cartState.cartProducts;
+  console.log(cartState.cartProducts, "cartstate+cartproducts");
+  console.log(cartData, "from cart data");
 
   return (
     <div>
       <Navbar />
-      <h1 class="h1">This is cart page</h1>
+      <div class="cart-heading text-center">
+        <p class="h2">MY CART ({cartState.totalItems} Items)</p>
+      </div>
 
-      {/* <section>
-        {mela.map((item, index) => {
-          return (
-            <li key={index}>
-              <div className="card-badge">
-                <img src={item.image} alt="sneakers" />
-                <div className="card-tag flex-row">
-                  <span className="material-icons-outlined">
-                    <img src="/assets/heart.png" alt="fav_icon" />
-                  </span>
-                </div>
+      <section className="row">
+        {/* cartData render */}
 
-                <div className="card-text">
-                  <p className="h5">{item.brand}</p>
-                  <p className="h2">{item.title}</p>
-                  <p className="h3">
-                    {item.price} <span>{item.original_price}</span>
-                  </p>
-                  <div className="prod-buttons">
-                      <button className="btn" onClick={(e)=>cartDispatch({type:"ADD_TO_CART",payload:item})}>
-                        <p className="h4">Add to Cart</p>
-                      </button>
+        <div className="column scroll-cart">
+          {cartData &&
+            cartData.map((item, index) => {
+              return (
+                <div class="card flex-row">
+                  <li key={index}>
+                    <div>
+                      <div class="card-horizontal">
+                        <img src="/assets/nike.png" alt="sneakers" />
 
-                      <button className="btn btn-secondary">
-                        <p className="h4">Add to Wishlist</p>
-                      </button>
+                        <div class="card-text">
+                          <p class="h4">Nike</p>
+                          <p class="h2" h1>
+                            Nike Airforce
+                          </p>
+                          <p class="h3">
+                            Rs.4900 <span>Rs.9999</span>
+                          </p>
+                          <p class="h3">50% OFF</p>
+                          <div class="incrementor flex-row">
+                            <p class="h4">Quantity: </p>
+                            <input
+                              id="number"
+                              class="h4"
+                              type="number"
+                              value="2"
+                            />
+                          </div>
+                          <button class="btn">
+                            <p class="h4">Remove from Cart</p>
+                          </button>
+                          <button class="btn btn-secondary">
+                            <p class="h4">Add to Wishlist</p>
+                          </button>
+                        </div>
+                      </div>
                     </div>
+                  </li>
                 </div>
+              );
+            })}
+        </div>
+        {/* Cart Total Section */}
+        <div class="price flex-row column price-container">
+          <div class="flex-col">
+            <p class="h2">PRICE DETAILS</p>
+            <hr />
+
+            <div class="price-two-col flex-row">
+              <div class="left-col">
+                <p class="h3">Item Total</p>
+                <p class="h3">Price Total</p>
+                <p class="h3">Discount</p>
+                <p class="h3">Delivery Charges</p>
+                <hr />
+                <p class="h2">TOTAL AMOUNT</p>
               </div>
-            </li>
-          );
-        })}
-      </section> */}
+
+              <div class="right-col">
+                <p class="h3">{cartState.totalItems}</p>
+                <p class="h3">4999 </p>
+                <p class="h3">0</p>
+                <p class="h3">49</p>
+                <hr />
+                <p class="h2">{cartState.totalAmount}</p>
+              </div>
+            </div>
+            <hr />
+
+            <p id="last-line" class="h3 last-line">
+              You would save 1999 on this order
+            </p>
+
+            <button class="btn">
+              <p class="h3">Place Order</p>
+            </button>
+          </div>
+        </div>
+      </section>
 
       <Footer />
     </div>

@@ -45,7 +45,7 @@ export const Products = () => {
 
   const getFinalItems = sortItems(getRatedItems, state.sortBy);
 
-  console.log("Final filter items", getFinalItems, load);
+  console.log("Final filter items", getFinalItems, load, cartState);
 
   return (
     <div id="page">
