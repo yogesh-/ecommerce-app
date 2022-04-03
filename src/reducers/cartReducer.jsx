@@ -37,7 +37,7 @@ const cartReducer = (cartState, cartAction) => {
       if (removeItem) {
         return {
           ...cartState,
-          totalItems: cartState.totalItems - 1,
+          totalItems: cartState.totalItems - cartAction.payload.quantity,
           totalAmount:
             cartState.totalAmount - cartAction.payload.original_price,
           totalDiscount: cartState.totalDiscount - cartAction.payload.discount,
