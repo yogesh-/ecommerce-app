@@ -3,6 +3,7 @@ import axios from "axios";
 import { Footer, Navbar, Filter } from "../../components/index";
 import "./products.css";
 import { useFilter } from "../../context/filtercontext";
+import { useCart } from "../../context/cartContext";
 
 import {
   ratingItems,
@@ -17,19 +18,19 @@ export const Products = () => {
 
   useEffect(() => {
     dataFetch();
-  });
+  }, []);
 
   const dataFetch = async () => {
     try {
       setLoad(true);
       const response = await axios.get("/api/products/");
       setData(response.data.products);
-      console.log("api call data", data);
       setLoad(false);
     } catch (error) {}
   };
 
   const { state } = useFilter();
+  const { cartDispatch } = useCart();
 
   const getPriceItems = priceItems(data, state.price);
   const getCategoryItems = categoryItems(
@@ -43,7 +44,7 @@ export const Products = () => {
 
   const getFinalItems = sortItems(getRatedItems, state.sortBy);
 
-  console.log("Final filter items", getFinalItems, load);
+  console.log(load);
 
   return (
     <div id="page">
@@ -71,7 +72,12 @@ export const Products = () => {
                       {item.price} <span>{item.original_price}</span>
                     </p>
                     <div className="prod-buttons">
-                      <button className="btn">
+                      <button
+                        className="btn"
+                        onClick={(e) =>
+                          cartDispatch({ type: "ADD_TO_CART", payload: item })
+                        }
+                      >
                         <p className="h4">Add to Cart</p>
                       </button>
 

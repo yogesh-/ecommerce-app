@@ -1,0 +1,37 @@
+.row {
+  display: grid;
+  grid-template-columns: 65% 35%;
+  padding-left: 20rem;
+  padding-right: 20rem;
+}
+.column {
+  padding: 2rem;
+  height: 50rem;
+  background-color: var(--hover-btn-color);
+}
+
+.empty {
+  height: 50rem;
+  background-color: var(--hover-btn-color);
+}
+
+.scroll-cart {
+  overflow-y: scroll;
+  padding-top: 5rem;
+  padding-right: 0;
+}
+
+.price-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 0;
+}
+
+.prod-container {
+  padding-right: 0;
+}
+
+.cart-heading {
+  padding-top: 1rem;
+}

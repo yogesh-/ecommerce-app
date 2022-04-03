@@ -1,8 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./navbar.css";
+import { useCart } from "../../context/cartContext";
 
 export const Navbar = () => {
+  const { cartState } = useCart();
+
   return (
     <nav class="flex-row">
       <div class="logo">
@@ -40,7 +43,7 @@ export const Navbar = () => {
             <Link to="/cart">
               <div class="badge">
                 <span class="material-icons-outlined">shopping_cart</span>
-                <div class="number-red">12</div>
+                <div class="number-red">{cartState.totalItems}</div>
               </div>
             </Link>
           </li>
