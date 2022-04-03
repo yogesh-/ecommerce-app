@@ -1,106 +1,154 @@
 import { Footer, Navbar } from "../../components/index";
 import { useCart } from "../../context/cartContext";
 import "./cart.css";
+import { Link } from "react-router-dom";
 
 export const Cart = () => {
-  const { cartState } = useCart();
-  console.log(cartState, "hello");
-  console.log("string");
+  const { cartState, cartDispatch } = useCart();
+  console.log(cartState, "from cart state");
   const cartData = cartState.cartProducts;
   console.log(cartState.cartProducts, "cartstate+cartproducts");
   console.log(cartData, "from cart data");
 
-  return (
-    <div>
-      <Navbar />
-      <div class="cart-heading text-center">
-        <p class="h2">MY CART ({cartState.totalItems} Items)</p>
+  if (cartData.length === 0) {
+    return (
+      <div>
+        <Navbar />
+        <div class="cart-heading text-center">
+          <p class="h2">MY CART ({cartState.totalItems} Items)</p>
+        </div>
+
+        <section className="empty price-container flex-col">
+          {/* cartData render */}
+
+          <p class="h1">YOUR CART IS EMPTY</p>
+          <Link to="/products">
+            <button class="btn h4">SHOP NOW</button>
+          </Link>
+        </section>
+
+        <Footer />
       </div>
+    );
+  } else {
+    return (
+      <div>
+        <Navbar />
+        <div class="cart-heading text-center">
+          <p class="h2">MY CART ({cartState.totalItems} Items)</p>
+        </div>
 
-      <section className="row">
-        {/* cartData render */}
+        <section className="row">
+          {/* cartData render */}
 
-        <div className="column scroll-cart">
-          {cartData &&
-            cartData.map((item, index) => {
-              return (
-                <div class="card flex-row">
-                  <li key={index}>
-                    <div>
-                      <div class="card-horizontal">
-                        <img src="/assets/nike.png" alt="sneakers" />
+          <div className="column scroll-cart">
+            {cartData &&
+              cartData.map((item, index) => {
+                return (
+                  <div class="card flex-row">
+                    <li key={index}>
+                      <div>
+                        <div class="card-horizontal">
+                          <img src={item.image} alt="sneakers" />
 
-                        <div class="card-text">
-                          <p class="h4">Nike</p>
-                          <p class="h2" h1>
-                            Nike Airforce
-                          </p>
-                          <p class="h3">
-                            Rs.4900 <span>Rs.9999</span>
-                          </p>
-                          <p class="h3">50% OFF</p>
-                          <div class="incrementor flex-row">
-                            <p class="h4">Quantity: </p>
-                            <input
-                              id="number"
-                              class="h4"
-                              type="number"
-                              value="2"
-                            />
+                          <div class="card-text">
+                            <p class="h4">{item.brand}</p>
+                            <p class="h2" h1>
+                              {item.title}
+                            </p>
+                            <p class="h3">
+                              {item.price} <span>{item.original_price}</span>
+                            </p>
+                            <p class="h3">50% OFF</p>
+                            <div class="incrementor flex-row">
+                              <button
+                                class="material-icons-outlined"
+                                onClick={(e) =>
+                                  cartDispatch({
+                                    type: "INCREMENT",
+                                    payload: item,
+                                  })
+                                }
+                              >
+                                add
+                              </button>
+                              <p class="h4">Quantity:{item.quantity}</p>
+                              <button
+                                class="material-icons-outlined"
+                                onClick={(e) =>
+                                  cartDispatch({
+                                    type: "DECREMENT",
+                                    payload: item,
+                                  })
+                                }
+                              >
+                                remove
+                              </button>
+                            </div>
+                            <button
+                              class="btn"
+                              onClick={(e) =>
+                                cartDispatch({
+                                  type: "REMOVE_FROM_CART",
+                                  payload: item,
+                                })
+                              }
+                            >
+                              <p class="h4">Remove from Cart</p>
+                            </button>
+                            <button class="btn btn-secondary">
+                              <p class="h4">Add to Wishlist</p>
+                            </button>
                           </div>
-                          <button class="btn">
-                            <p class="h4">Remove from Cart</p>
-                          </button>
-                          <button class="btn btn-secondary">
-                            <p class="h4">Add to Wishlist</p>
-                          </button>
                         </div>
                       </div>
-                    </div>
-                  </li>
-                </div>
-              );
-            })}
-        </div>
-        {/* Cart Total Section */}
-        <div class="price flex-row column price-container">
-          <div class="flex-col">
-            <p class="h2">PRICE DETAILS</p>
-            <hr />
-
-            <div class="price-two-col flex-row">
-              <div class="left-col">
-                <p class="h3">Item Total</p>
-                <p class="h3">Price Total</p>
-                <p class="h3">Discount</p>
-                <p class="h3">Delivery Charges</p>
-                <hr />
-                <p class="h2">TOTAL AMOUNT</p>
-              </div>
-
-              <div class="right-col">
-                <p class="h3">{cartState.totalItems}</p>
-                <p class="h3">4999 </p>
-                <p class="h3">0</p>
-                <p class="h3">49</p>
-                <hr />
-                <p class="h2">{cartState.totalAmount}</p>
-              </div>
-            </div>
-            <hr />
-
-            <p id="last-line" class="h3 last-line">
-              You would save 1999 on this order
-            </p>
-
-            <button class="btn">
-              <p class="h3">Place Order</p>
-            </button>
+                    </li>
+                  </div>
+                );
+              })}
           </div>
-        </div>
-      </section>
+          {/* Cart Total Section */}
+          <div class="price flex-row column price-container">
+            <div class="flex-col">
+              <p class="h2">PRICE DETAILS</p>
+              <hr />
 
-      <Footer />
-    </div>
-  );
+              <div class="price-two-col flex-row">
+                <div class="left-col">
+                  <p class="h3">Total Items</p>
+                  <p class="h3">Total Price</p>
+                  <p class="h3">Discount</p>
+                  <p class="h3">Delivery Charges</p>
+                  <hr />
+                  <p class="h2">TOTAL AMOUNT</p>
+                </div>
+
+                <div class="right-col">
+                  <p class="h3">{cartState.totalItems}</p>
+                  <p class="h3">{cartState.totalAmount} </p>
+                  <p class="h3">{cartState.totalDiscount}</p>
+                  <p class="h3">49</p>
+                  <hr />
+                  <p class="h2">
+                    {cartState.totalAmount - cartState.totalDiscount + 49}
+                  </p>
+                </div>
+              </div>
+              <hr />
+
+              <p id="last-line" class="h3 last-line">
+                You would save {cartState.totalDiscount} on this order
+              </p>
+
+              <button class="btn">
+                <p class="h3">Place Order</p>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <Footer />
+      </div>
+    );
+  }
 };
