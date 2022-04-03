@@ -7,16 +7,14 @@ export const Trending = () => {
   const { cartDispatch } = useCart();
 
   useEffect(() => {
+    const trendFetch = async () => {
+      try {
+        const trendResponse = await axios.get("/api/products/");
+        setFetch(trendResponse.data.products);
+      } catch (error) {}
+    };
     trendFetch();
   }, []);
-
-  const trendFetch = async () => {
-    try {
-      const trendResponse = await axios.get("/api/products/");
-      setFetch(trendResponse.data.products);
-      console.log(fetch.slice(0, 2));
-    } catch (error) {}
-  };
 
   return (
     <div class="trending-items">
