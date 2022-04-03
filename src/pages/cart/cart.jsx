@@ -5,10 +5,7 @@ import { Link } from "react-router-dom";
 
 export const Cart = () => {
   const { cartState, cartDispatch } = useCart();
-  console.log(cartState, "from cart state");
   const cartData = cartState.cartProducts;
-  console.log(cartState.cartProducts, "cartstate+cartproducts");
-  console.log(cartData, "from cart data");
 
   if (cartData.length === 0) {
     return (

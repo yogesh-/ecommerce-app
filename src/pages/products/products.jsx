@@ -30,7 +30,7 @@ export const Products = () => {
   };
 
   const { state } = useFilter();
-  const { cartState, cartDispatch } = useCart();
+  const { cartDispatch } = useCart();
 
   const getPriceItems = priceItems(data, state.price);
   const getCategoryItems = categoryItems(
@@ -44,7 +44,7 @@ export const Products = () => {
 
   const getFinalItems = sortItems(getRatedItems, state.sortBy);
 
-  console.log("Final filter items", getFinalItems, load, cartState);
+  console.log(load);
 
   return (
     <div id="page">
