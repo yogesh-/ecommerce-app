@@ -47,8 +47,6 @@ export const Products = () => {
   const getFinalItems = sortItems(getRatedItems, state.sortBy);
 
   console.log(load);
-  console.log(wishDispatch, "from wishdispatch");
-  console.log(cartDispatch, "from cartDispatch");
 
   return (
     <div id="page">
