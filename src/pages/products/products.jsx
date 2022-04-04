@@ -4,6 +4,7 @@ import { Footer, Navbar, Filter } from "../../components/index";
 import "./products.css";
 import { useFilter } from "../../context/filtercontext";
 import { useCart } from "../../context/cartContext";
+import { useWish } from "../../context/wishContext";
 
 import {
   ratingItems,
@@ -31,6 +32,7 @@ export const Products = () => {
 
   const { state } = useFilter();
   const { cartDispatch } = useCart();
+  const { wishDispatch } = useWish();
 
   const getPriceItems = priceItems(data, state.price);
   const getCategoryItems = categoryItems(
@@ -45,6 +47,7 @@ export const Products = () => {
   const getFinalItems = sortItems(getRatedItems, state.sortBy);
 
   console.log(load);
+  console.log(wishDispatch);
 
   return (
     <div id="page">
@@ -81,7 +84,15 @@ export const Products = () => {
                         <p className="h4">Add to Cart</p>
                       </button>
 
-                      <button className="btn btn-secondary">
+                      <button
+                        className="btn btn-secondary"
+                        onClick={(e) =>
+                          wishDispatch({
+                            type: "ADD_TO_WISHLIST",
+                            payload: item,
+                          })
+                        }
+                      >
                         <p className="h4">Add to Wishlist</p>
                       </button>
                     </div>
