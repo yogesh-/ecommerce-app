@@ -47,7 +47,8 @@ export const Products = () => {
   const getFinalItems = sortItems(getRatedItems, state.sortBy);
 
   console.log(load);
-  console.log(wishDispatch);
+  console.log(wishDispatch, "from wishdispatch");
+  console.log(cartDispatch, "from cartDispatch");
 
   return (
     <div id="page">
@@ -56,7 +57,6 @@ export const Products = () => {
       <main>
         <p className="h2 prod-headline">Showing All Products...</p>
         <div className="product-listing-products flex-row-prod">
-          {/* {getFinalItems.length > 0 && */}
           {getFinalItems.map((item, index) => {
             return (
               <li key={index}>

@@ -2,9 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./navbar.css";
 import { useCart } from "../../context/cartContext";
+import { useWish } from "../../context/wishContext";
 
 export const Navbar = () => {
   const { cartState } = useCart();
+  const { wishState } = useWish();
 
   return (
     <nav class="flex-row">
@@ -34,7 +36,7 @@ export const Navbar = () => {
               <div class="badge">
                 <span class="material-icons-outlined">favorite_border</span>
 
-                <div class="number-red">8</div>
+                <div class="number-red">{wishState.wishCount}</div>
               </div>
             </Link>
           </li>

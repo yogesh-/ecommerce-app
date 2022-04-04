@@ -1,11 +1,14 @@
 import { Footer, Navbar } from "../../components/index";
 import { useCart } from "../../context/cartContext";
+import { useWish } from "../../context/wishContext";
 import "./cart.css";
 import { Link } from "react-router-dom";
 
 export const Cart = () => {
+  const { wishDispatch } = useWish();
   const { cartState, cartDispatch } = useCart();
   const cartData = cartState.cartProducts;
+  console.log(cartData);
 
   if (cartData.length === 0) {
     return (
@@ -93,7 +96,16 @@ export const Cart = () => {
                             >
                               <p class="h4">Remove from Cart</p>
                             </button>
-                            <button class="btn btn-secondary">
+
+                            <button
+                              class="btn btn-secondary"
+                              onClick={(e) =>
+                                wishDispatch({
+                                  type: "ADD_TO_WISHLIST",
+                                  payload: item,
+                                })
+                              }
+                            >
                               <p class="h4">Add to Wishlist</p>
                             </button>
                           </div>
