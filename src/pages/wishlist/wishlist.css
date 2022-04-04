@@ -1,0 +1,12 @@
+.empty_wish {
+  height: 50rem;
+  background-color: var(--hover-btn-color);
+}
+
+.flex-row-wish {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}

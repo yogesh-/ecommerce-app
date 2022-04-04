@@ -6,18 +6,21 @@ import { makeServer } from "./server";
 import { BrowserRouter } from "react-router-dom";
 import { FilterProvider } from "./context/filtercontext";
 import { CartProvider } from "./context/cartContext";
+import { WishListProvider } from "./context/wishContext";
 
 makeServer();
 
 ReactDOM.render(
   <React.StrictMode>
-    <CartProvider>
-      <FilterProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </FilterProvider>
-    </CartProvider>
+    <WishListProvider>
+      <CartProvider>
+        <FilterProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </FilterProvider>
+      </CartProvider>
+    </WishListProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
