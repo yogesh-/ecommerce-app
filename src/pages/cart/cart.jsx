@@ -11,7 +11,6 @@ export const Cart = () => {
   const { wishDispatch } = useWish();
   const { cartState, cartDispatch } = useCart();
   const cartData = cartState.cartProducts;
-  console.log(cartData);
 
   if (cartData.length === 0) {
     return (

@@ -4,8 +4,10 @@ import "./navbar.css";
 import { useCart } from "../../context/cartContext";
 import { useWish } from "../../context/wishContext";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/authContext";
 
 export const Navbar = () => {
+  const { setIsLoggedIn } = useAuth();
   const { cartState } = useCart();
   const { wishState } = useWish();
   let navigate = useNavigate();
@@ -16,8 +18,10 @@ export const Navbar = () => {
   const logoutLoginHandler = () => {
     if (navtoken) {
       // delete-token,log out the user,go to home
+      setIsLoggedIn(false);
       localStorage.removeItem("token");
       navigate("/");
+      // setIsLoggedIn(false);
     } else {
       navigate("/login");
     }
