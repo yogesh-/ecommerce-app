@@ -1,0 +1,25 @@
+.signup-form {
+  height: none;
+  display: flex;
+  justify-content: center;
+}
+
+.form > a {
+  cursor: pointer;
+}
+
+.form .pswd-hide-icon {
+  position: absolute;
+  top: 4rem;
+  right: 0.4rem;
+
+  color: var(--black-color);
+}
+
+.pswd-bar {
+  position: relative;
+}
+
+.pswd-hide-icon:hover {
+  cursor: pointer;
+}

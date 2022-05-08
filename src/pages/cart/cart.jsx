@@ -1,10 +1,13 @@
 import { Footer, Navbar } from "../../components/index";
 import { useCart } from "../../context/cartContext";
 import { useWish } from "../../context/wishContext";
+import { useAuth } from "../../context/authContext";
 import "./cart.css";
 import { Link } from "react-router-dom";
 
 export const Cart = () => {
+  const { isLoggedIn } = useAuth();
+  console.log(isLoggedIn);
   const { wishDispatch } = useWish();
   const { cartState, cartDispatch } = useCart();
   const cartData = cartState.cartProducts;
