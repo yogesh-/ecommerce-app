@@ -9,7 +9,6 @@ export default function RequiresAuth({ children }) {
     setIsLoggedIn(true);
   }
 
-  console.log("hello", isLoggedIn);
   const location = useLocation();
   return isLoggedIn ? (
     children
