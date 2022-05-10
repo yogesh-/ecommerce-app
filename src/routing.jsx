@@ -3,6 +3,9 @@ import { Route, Routes } from "react-router-dom";
 import { Products } from "./pages/products/products";
 import { Cart } from "./pages/cart/cart";
 import { Wishlist } from "./pages/wishlist/wishlist";
+import { Login } from "./pages/login/login";
+import { SignUp } from "./pages/signup/signup";
+import RequiresAuth from "./requiresAuth";
 
 export const Routing = () => {
   return (
@@ -10,10 +13,24 @@ export const Routing = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/wishlist" element={<Wishlist />} />
-        {/* <Route path="/signin" element={<SignIn />} />
-        <Route path="/signup" element={<SignUp />} /> */}
+        <Route
+          path="/cart"
+          element={
+            <RequiresAuth>
+              <Cart />
+            </RequiresAuth>
+          }
+        />
+        <Route
+          path="/wishlist"
+          element={
+            <RequiresAuth>
+              <Wishlist />
+            </RequiresAuth>
+          }
+        />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
       </Routes>
     </div>
   );

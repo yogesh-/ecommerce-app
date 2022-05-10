@@ -3,10 +3,29 @@ import { Link } from "react-router-dom";
 import "./navbar.css";
 import { useCart } from "../../context/cartContext";
 import { useWish } from "../../context/wishContext";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/authContext";
 
 export const Navbar = () => {
+  const { setIsLoggedIn } = useAuth();
   const { cartState } = useCart();
   const { wishState } = useWish();
+  let navigate = useNavigate();
+
+  let navtoken = localStorage.getItem("token");
+  // console.log("navtoken", navtoken);
+
+  const logoutLoginHandler = () => {
+    if (navtoken) {
+      // delete-token,log out the user,go to home
+      setIsLoggedIn(false);
+      localStorage.removeItem("token");
+      navigate("/");
+      // setIsLoggedIn(false);
+    } else {
+      navigate("/login");
+    }
+  };
 
   return (
     <nav class="flex-row">
@@ -24,11 +43,13 @@ export const Navbar = () => {
       <div class="nav-items">
         <ul class="flex-row right-icons">
           <li>
-            <a href="/html/login.html">
+            <Link to="/login">
               <button class="btn">
-                <p class="h4">Login</p>
+                <p class="h4" onClick={logoutLoginHandler}>
+                  {navtoken ? "Logout" : "Login"}
+                </p>
               </button>
-            </a>
+            </Link>
           </li>
 
           <li>

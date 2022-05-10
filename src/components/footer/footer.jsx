@@ -16,7 +16,7 @@ export const Footer = () => {
         </a>
       </div>
 
-      <p class="h5">&#169; 2022 SNEAKERS Pvt Ltd</p>
+      <p class="h5 bottom-text">&#169; 2022 SNEAKERS Pvt Ltd</p>
     </div>
   );
 };

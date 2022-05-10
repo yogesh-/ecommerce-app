@@ -212,10 +212,9 @@ nav .nav-items .number-red {
 
 .footer-home {
   grid-area: footer;
-  background-color: white;
+  background-color: var(--primary-color);
   align-items: center;
-  line-height: 3rem;
-  margin-top: 2rem;
+  padding-top: 1rem;
 }
 
 .footer-home a:hover {

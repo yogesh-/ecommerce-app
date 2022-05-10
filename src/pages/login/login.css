@@ -1,0 +1,45 @@
+@import url(/src/pages/home/home.css);
+
+.login-form {
+  height: 100vh;
+}
+
+.login-form .form {
+  width: 40rem;
+  background: var(--primary-color);
+  border-radius: 4px;
+  color: var(--text-color);
+}
+
+.login-form .form > p {
+  margin-bottom: 3rem;
+}
+
+.forgot {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.check-row {
+  justify-content: space-around;
+  gap: 1rem;
+}
+
+.form input[type="password"] {
+  border: none;
+}
+
+#password,
+#email {
+  font-size: 2rem;
+}
+
+nav .logo a {
+  color: var(--text-color);
+}
+
+.login-button {
+  display: flex;
+  flex-direction: row;
+  column-gap: 2rem;
+}
