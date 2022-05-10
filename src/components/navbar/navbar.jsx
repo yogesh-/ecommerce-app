@@ -13,7 +13,6 @@ export const Navbar = () => {
   let navigate = useNavigate();
 
   let navtoken = localStorage.getItem("token");
-  // console.log("navtoken", navtoken);
 
   const logoutLoginHandler = () => {
     if (navtoken) {
