@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Footer, Navbar, Filter } from "../../components/index";
 import "./products.css";
+import { Link } from "react-router-dom";
 import { useFilter } from "../../context/filtercontext";
 import { useCart } from "../../context/cartContext";
 import { useWish } from "../../context/wishContext";
@@ -59,7 +60,15 @@ export const Products = () => {
             return (
               <li key={index}>
                 <div className="card-badge">
-                  <img src={item.image} alt="sneakers" />
+                  <Link to={`/product/${item._id}`}>
+                    <img
+                      className="img-style"
+                      src={item.image}
+                      alt="sneakers"
+                    />
+                  </Link>
+                  {/* <img src={item.image} alt="sneakers" /> */}
+
                   <div className="card-tag flex-row">
                     <span className="material-icons-outlined">
                       <img src="/assets/heart.png" alt="fav_icon" />

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const Hero = () => {
   return (
     <div class="hero-banner badge flex-col">
@@ -10,17 +12,17 @@ export const Hero = () => {
           excitedly for your runs.
         </p>
         <div class="cta-buttons flex-row">
-          <a href="/html/cart.html">
+          <Link to="/products">
             <button class="btn btn-primary">
               <span class="h4">BUY NOW</span>
             </button>
-          </a>
+          </Link>
 
-          <a href="/html/product_listing.html">
+          <Link to="/products">
             <button class="btn btn-primary">
               <span class="h4">Check Collection</span>
             </button>
-          </a>
+          </Link>
         </div>
       </div>
     </div>

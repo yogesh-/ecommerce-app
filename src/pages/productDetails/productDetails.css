@@ -1,0 +1,27 @@
+.item-display {
+  height: 80vh;
+  background-color: aqua;
+  margin: 0 20rem;
+}
+
+.img-style {
+  width: 25rem;
+  height: 30rem;
+  margin: 2rem 2rem 0rem 2rem;
+  border-radius: 0.5rem;
+}
+
+.product-desc {
+  overflow-wrap: break-word;
+  width: 50rem;
+  margin-top: 2rem;
+}
+
+.buttons-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 2rem;
+  margin-top: 2rem;
+}
