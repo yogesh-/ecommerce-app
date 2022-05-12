@@ -67,7 +67,6 @@ export const Products = () => {
                       alt="sneakers"
                     />
                   </Link>
-                  {/* <img src={item.image} alt="sneakers" /> */}
 
                   <div className="card-tag flex-row">
                     <span className="material-icons-outlined">
