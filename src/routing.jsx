@@ -6,6 +6,7 @@ import { Wishlist } from "./pages/wishlist/wishlist";
 import { Login } from "./pages/login/login";
 import { SignUp } from "./pages/signup/signup";
 import RequiresAuth from "./requiresAuth";
+import { ProductDetails } from "./pages/productDetails/productDetails";
 
 export const Routing = () => {
   return (
@@ -31,6 +32,7 @@ export const Routing = () => {
         />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/product/:productId" element={<ProductDetails />} />
       </Routes>
     </div>
   );

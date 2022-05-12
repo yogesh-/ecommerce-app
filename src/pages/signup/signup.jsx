@@ -68,16 +68,12 @@ export const SignUp = () => {
 
           localStorage.setItem("userEmail", response.data.createdUser.email);
           localStorage.setItem("userPwd", response.data.createdUser.password);
-          // let userEmail = localStorage.getItem("userEmail");
-          // let userPwd = localStorage.getItem("userPwd");
-          // console.log("getUser", userEmail, userPwd);
-          // saving the encodedToken in the localStorage
+
           localStorage.setItem("token", response.data.encodedToken);
           let signToken = localStorage.getItem("token");
           if (signToken) {
             navigate("/");
           }
-          console.log(signToken);
         } catch (error) {
           console.log(error);
         }

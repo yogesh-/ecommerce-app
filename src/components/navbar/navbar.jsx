@@ -13,15 +13,12 @@ export const Navbar = () => {
   let navigate = useNavigate();
 
   let navtoken = localStorage.getItem("token");
-  // console.log("navtoken", navtoken);
 
   const logoutLoginHandler = () => {
     if (navtoken) {
-      // delete-token,log out the user,go to home
       setIsLoggedIn(false);
       localStorage.removeItem("token");
       navigate("/");
-      // setIsLoggedIn(false);
     } else {
       navigate("/login");
     }

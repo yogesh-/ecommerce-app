@@ -1,6 +1,7 @@
 import { useCart } from "../../context/cartContext";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export const Trending = () => {
   const [fetch, setFetch] = useState([]);
@@ -25,7 +26,9 @@ export const Trending = () => {
           return (
             <li key={index}>
               <div class="card-badge">
-                <img src={item.image} alt="sneakers" />
+                <Link to={`/product/${item._id}`}>
+                  <img className="img-style" src={item.image} alt="sneakers" />
+                </Link>
                 <div class="card-tag">
                   <p class="h6">NEW ARRIVAL</p>
                 </div>

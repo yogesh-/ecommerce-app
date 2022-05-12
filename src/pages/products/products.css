@@ -192,6 +192,14 @@ main .card-tag {
   align-items: center;
 }
 
+.img-style {
+  width: 25rem;
+  height: 30rem;
+  margin: 2rem 2rem 0rem 2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
 main .prod-headline {
   color: red;
   margin: 1rem 2rem;

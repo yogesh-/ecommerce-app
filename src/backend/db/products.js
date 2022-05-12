@@ -16,6 +16,8 @@ export const products = [
     category: "running",
     image: "/assets/nike.png",
     rating: 3.3,
+    description:
+      "The radiance lives on in the Nike Air Force, the b-ball icon that puts a fresh spin on what you know best: crisp leather, bold colours and the perfect amount of flash to make you shine.",
   },
   {
     _id: uuid(),
@@ -27,6 +29,8 @@ export const products = [
     category: "workout",
     image: "/assets/adidas_red.jpg",
     rating: 4,
+    description:
+      "One of the best shoes to come out from Adidas till date, It is designed to give you the maximum comfort possible without compromising on the looks and quality",
   },
   {
     _id: uuid(),
@@ -38,6 +42,8 @@ export const products = [
     category: "running",
     image: "/assets/hushpuppies.jpg",
     rating: 5,
+    description:
+      " Step into 360° comfortnew PerfectFit Stretch System that hugs your foot for instant flexibility and all-day comfort. ",
   },
 
   {
@@ -50,6 +56,8 @@ export const products = [
     category: "running",
     image: "/assets/khadims.jpg",
     rating: 1,
+    description:
+      "This 70’s style, shoe is crafted with soft suedes in a variety of vintage-inspired colors, so they’ll match every funky tracksuit or casual outfit you pair it with.",
   },
 
   {
@@ -62,6 +70,8 @@ export const products = [
     category: "tennis",
     image: "/assets/sparks.jpeg",
     rating: 2,
+    description:
+      "These are the light weight shoes deigned to provide style with comfort, breathable upper keeps your feet dry. Built with keeping the Indian tropical climate in mind and varying seasons. It is built to last and work in all weather conditions.",
   },
 
   {
@@ -74,6 +84,8 @@ export const products = [
     category: "tennis",
     image: "/assets/nike-tennis.webp",
     rating: 3,
+    description:
+      "These are the perfect shoes for playing tennis. We have been innovating on the same design since the last 40 years and it is the shoe of the choice ",
   },
 
   {
@@ -86,6 +98,8 @@ export const products = [
     category: "running",
     image: "/assets/nike quest.jpg",
     rating: 4,
+    description:
+      "The radiance lives on in the Nike Quest, the b-ball icon that puts a fresh spin on what you know best: crisp leather, bold colours and the perfect amount of flash to make you shine.",
   },
 
   {
@@ -98,6 +112,8 @@ export const products = [
     category: "workout",
     image: "/assets/HRX Gym.webp",
     rating: 3.4,
+    description:
+      "The most lean and mean shoes for the workout in the town. It has the best blend of style, comfort and ruggedness for lifting those heavy weights in the Gym.",
   },
 
   {
@@ -110,5 +126,7 @@ export const products = [
     category: "workout",
     image: "/assets/Adida.webp",
     rating: 4,
+    description:
+      "One of the best shoes to come out from Adidas till date, It is designed to give you the maximum comfort possible without compromising on the looks and quality",
   },
 ];

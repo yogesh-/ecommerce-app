@@ -15,7 +15,6 @@ export const Login = () => {
 
   let userEmail = localStorage.getItem("userEmail");
   let userPwd = localStorage.getItem("userPwd");
-  console.log("getUser", userEmail, userPwd);
 
   const loginHandler = async () => {
     try {
