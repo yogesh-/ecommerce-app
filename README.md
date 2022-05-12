@@ -3,3 +3,4 @@
 ### New Update
 
 - Added Authentication
+- Single Product Page
