@@ -27,7 +27,7 @@ export const ProductDetails = () => {
   };
   useEffect(() => {
     productCall();
-  }, []);
+  });
 
   return (
     <>
