@@ -1,6 +1,7 @@
 .item-display {
   height: 80vh;
-  background-color: aqua;
+  /* background-color: aqua; */
+  background-color: var(--hover-btn-color);
   margin: 0 20rem;
 }
 

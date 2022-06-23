@@ -54,7 +54,7 @@ export const Products = () => {
       <Navbar />
       <Filter />
       <main>
-        <p className="h2 prod-headline">Showing All Products...</p>
+        {/* <p className="h2 prod-headline">Showing All Products...</p> */}
         <div className="product-listing-products flex-row-prod">
           {getFinalItems.map((item, index) => {
             return (
@@ -68,11 +68,12 @@ export const Products = () => {
                     />
                   </Link>
 
-                  <div className="card-tag flex-row">
-                    <span className="material-icons-outlined">
-                      <img src="/assets/heart.png" alt="fav_icon" />
-                    </span>
-                  </div>
+                  {/* put the rating for product here */}
+                  {/* <div className="card-tag flex-row"> */}
+                  {/* <span className="material-icons-outlined"> */}
+                  {/* <img src="/assets/heart.png" alt="fav_icon" /> */}
+                  {/* </span> */}
+                  {/* </div> */}
 
                   <div className="card-text">
                     <p className="h5">{item.brand}</p>

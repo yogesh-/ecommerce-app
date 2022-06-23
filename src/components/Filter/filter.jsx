@@ -15,7 +15,7 @@ export const Filter = () => {
           </button>
         </div>
 
-        <div className="filter-price filter-styling">
+        <div className="filter-price filter-styling margin-top-bottom">
           <p className="h3">Price</p>
           <div className="filter-price-break flex-row">
             <p className="h3">1k</p>
@@ -30,7 +30,7 @@ export const Filter = () => {
               type="range"
               min="1000"
               max="5000"
-              defaultValue="50"
+              defaultValue="30"
               step="1000"
               value={price}
               className="slider"
@@ -45,39 +45,47 @@ export const Filter = () => {
         <div className="filter-category flex-col filter-styling">
           <p className="h3">Category</p>
           <div className="filter-checkboks checkbox">
-            <label for="checkbox-1">
-              <input
-                id="checkbox-1"
-                name="running"
-                type="checkbox"
-                value="running"
-                checked={running}
-                onChange={(e) => dispatch({ type: "RUNNING" })}
-              />
-              Running
-            </label>
-            <label for="checkbox-1">
-              <input
-                id="checkbox-1"
-                name="workout"
-                type="checkbox"
-                value="workout"
-                checked={workout}
-                onChange={(e) => dispatch({ type: "WORKOUT" })}
-              />
-              Workout
-            </label>
-            <label for="checkbox-1">
-              <input
-                id="checkbox-1"
-                name="tennis"
-                type="checkbox"
-                value="tennis"
-                checked={tennis}
-                onChange={(e) => dispatch({ type: "TENNIS" })}
-              />
-              Tennis
-            </label>
+            <div className="filter-flex">
+              <label for="checkbox-1">
+                <input
+                  id="checkbox-1"
+                  name="running"
+                  type="checkbox"
+                  value="running"
+                  checked={running}
+                  onChange={(e) => dispatch({ type: "RUNNING" })}
+                />
+              </label>
+              <p className="h4">Running</p>
+            </div>
+
+            <div className="filter-flex">
+              <label for="checkbox-1">
+                <input
+                  id="checkbox-1"
+                  name="workout"
+                  type="checkbox"
+                  value="workout"
+                  checked={workout}
+                  onChange={(e) => dispatch({ type: "WORKOUT" })}
+                />
+              </label>
+              <p className="h4">Workout</p>
+            </div>
+
+            <div className="filter-flex">
+              <label for="checkbox-1">
+                <input
+                  id="checkbox-1"
+                  name="tennis"
+                  type="checkbox"
+                  value="tennis"
+                  checked={tennis}
+                  onChange={(e) => dispatch({ type: "TENNIS" })}
+                />
+              </label>
+              <p className="h4">Tennis</p>
+            </div>
           </div>
         </div>
 
@@ -86,92 +94,104 @@ export const Filter = () => {
         <div className="filter-rating filter-styling">
           <p className="h3">Rating</p>
           <div className="radio">
-            <label for="radio-1">
-              <input
-                id="radio-1"
-                name="radio-rating"
-                type="radio"
-                checked={rating === 4}
-                value="4"
-                onChange={(e) =>
-                  dispatch({ type: "RATING", value: e.target.value })
-                }
-              />
-              4 stars & above
-            </label>
+            <div className="filter-flex">
+              <label for="radio-1">
+                <input
+                  id="radio-1"
+                  name="radio-rating"
+                  type="radio"
+                  checked={rating === 4}
+                  value="4"
+                  onChange={(e) =>
+                    dispatch({ type: "RATING", value: e.target.value })
+                  }
+                />
+              </label>
+              <p className="h4">4 stars & above</p>
+            </div>
 
-            <label for="radio-2">
-              <input
-                id="radio-2"
-                name="radio-rating"
-                type="radio"
-                checked={rating === 3}
-                value="3"
-                onChange={(e) =>
-                  dispatch({ type: "RATING", value: e.target.value })
-                }
-              />
-              3 stars & above
-            </label>
+            <div className="filter-flex">
+              <label for="radio-2">
+                <input
+                  id="radio-2"
+                  name="radio-rating"
+                  type="radio"
+                  checked={rating === 3}
+                  value="3"
+                  onChange={(e) =>
+                    dispatch({ type: "RATING", value: e.target.value })
+                  }
+                />
+              </label>
+              <p className="h4">3 stars & above</p>
+            </div>
 
-            <label for="radio-3">
-              <input
-                id="radio-3"
-                name="radio-rating"
-                type="radio"
-                checked={rating === 2}
-                value="2"
-                onChange={(e) =>
-                  dispatch({ type: "RATING", value: e.target.value })
-                }
-              />
-              2 stars & above
-            </label>
+            <div className="filter-flex">
+              <label for="radio-3">
+                <input
+                  id="radio-3"
+                  name="radio-rating"
+                  type="radio"
+                  checked={rating === 2}
+                  value="2"
+                  onChange={(e) =>
+                    dispatch({ type: "RATING", value: e.target.value })
+                  }
+                />
+              </label>
+              <p className="h4">2 stars & above</p>
+            </div>
 
-            <label for="radio-4">
-              <input
-                id="radio-4"
-                name="radio-rating"
-                type="radio"
-                checked={rating === 1}
-                value="1"
-                onChange={(e) =>
-                  dispatch({ type: "RATING", value: e.target.value })
-                }
-              />
-              1 stars & above
-            </label>
+            <div className="filter-flex">
+              <label for="radio-4">
+                <input
+                  id="radio-4"
+                  name="radio-rating"
+                  type="radio"
+                  checked={rating === 1}
+                  value="1"
+                  onChange={(e) =>
+                    dispatch({ type: "RATING", value: e.target.value })
+                  }
+                />
+              </label>
+              <p className="h4">1 stars & above</p>
+            </div>
           </div>
         </div>
 
-        {/* PRICE */}
+        {/* SORT BY PRICE */}
 
         <div className="filter-sorting filter-styling">
           <p className="h3">Sort By</p>
           <div className="radio">
-            <label for="radio-sort-1">
-              <input
-                id="radio-sort-1"
-                name="radio-price"
-                type="radio"
-                checked={sortBy === "LOW_TO_HIGH"}
-                value="lowToHigh"
-                onChange={() => dispatch({ type: "LOW_TO_HIGH" })}
-              />
-              Low to High
-            </label>
+            <div className="filter-flex">
+              <label for="radio-sort-1">
+                <input
+                  id="radio-sort-1"
+                  name="radio-price"
+                  type="radio"
+                  checked={sortBy === "LOW_TO_HIGH"}
+                  value="lowToHigh"
+                  onChange={() => dispatch({ type: "LOW_TO_HIGH" })}
+                />
+              </label>
+              <p className="h4">Low to High</p>
+            </div>
 
-            <label for="radio-sort-2">
-              <input
-                id="radio-sort-2"
-                name="radio-price"
-                type="radio"
-                checked={sortBy === "HIGH_TO_LOW"}
-                value="highToLow"
-                onChange={() => dispatch({ type: "HIGH_TO_LOW" })}
-              />
-              High to Low
-            </label>
+            <div className="filter-flex">
+              <label for="radio-sort-2">
+                <input
+                  id="radio-sort-2"
+                  name="radio-price"
+                  type="radio"
+                  checked={sortBy === "HIGH_TO_LOW"}
+                  value="highToLow"
+                  onChange={() => dispatch({ type: "HIGH_TO_LOW" })}
+                />
+              </label>
+              <p className="h4">Hight to Low</p>
+            </div>
           </div>
         </div>
       </div>

@@ -116,8 +116,29 @@ body {
 
 /* Filter */
 
+.filter-flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.filter-flex p {
+  padding-left: 0.5rem;
+  font-weight: normal;
+}
+
+.flex-row-filter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
 .slidecontainer {
   width: 100%;
+}
+
+.margin-top-bottom {
+  margin: 1rem 0;
 }
 
 .slider {
@@ -151,7 +172,7 @@ sidebar .filter-price-break p {
 }
 
 .filter-styling {
-  /* margin: 2rem 1rem; */
+  margin: 1rem 1rem;
   background-color: var(--text-color);
 }
 
