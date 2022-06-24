@@ -203,13 +203,13 @@ sidebar .filter-price-break {
 }
 
 main .card-tag {
-  width: 3rem;
+  width: 4.5rem;
   height: 3rem;
   position: absolute;
-  right: 3rem;
-  top: 3rem;
-  background: var(--primary-color);
-  border-radius: 50%;
+  left: 2rem;
+  top: 2rem;
+  background: var(--black-color);
+  border-radius: 10%;
   align-items: center;
 }
 

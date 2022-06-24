@@ -69,11 +69,12 @@ export const Products = () => {
                   </Link>
 
                   {/* put the rating for product here */}
-                  {/* <div className="card-tag flex-row"> */}
-                  {/* <span className="material-icons-outlined"> */}
-                  {/* <img src="/assets/heart.png" alt="fav_icon" /> */}
-                  {/* </span> */}
-                  {/* </div> */}
+                  <div className="card-tag flex-row">
+                    <p className="h4" style={{ color: "white" }}>
+                      {" "}
+                      {item.rating}⭐
+                    </p>
+                  </div>
 
                   <div className="card-text">
                     <p className="h5">{item.brand}</p>

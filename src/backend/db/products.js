@@ -129,4 +129,17 @@ export const products = [
     description:
       "One of the best shoes to come out from Adidas till date, It is designed to give you the maximum comfort possible without compromising on the looks and quality",
   },
+  {
+    _id: uuid(),
+    brand: "Adidas",
+    title: "Divox",
+    price: 999,
+    original_price: 1999,
+    discount: 1000,
+    category: "tennis",
+    image: "/assets/divox.png",
+    rating: 4,
+    description:
+      "One of the best shoes to come out from Adidas till date, It is designed to give you the maximum comfort possible without compromising on the looks and quality",
+  },
 ];

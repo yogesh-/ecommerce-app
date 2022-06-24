@@ -10,3 +10,7 @@
   justify-content: space-around;
   flex-wrap: wrap;
 }
+
+.btn-secondary {
+  margin-left: 0.5rem !important;
+}

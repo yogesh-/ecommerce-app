@@ -66,7 +66,7 @@ export const Wishlist = () => {
                             })
                           }
                         >
-                          <p className="h4"> X Remove</p>
+                          <p className="h4">Remove</p>
                         </button>
                       </div>
                     </div>

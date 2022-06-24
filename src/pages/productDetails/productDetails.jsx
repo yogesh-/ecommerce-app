@@ -17,13 +17,11 @@ export const ProductDetails = () => {
   const productCall = async () => {
     try {
       var url = `/api/products/${productId}`;
-      console.log(url);
+
       const productCall = await axios.get(url);
       var finalSingleProduct = productCall.data.product;
       setData(finalSingleProduct);
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
   useEffect(() => {
     productCall();
@@ -39,7 +37,7 @@ export const ProductDetails = () => {
         <div className="flex-col">
           <p className="h1">{data.title}</p>
           <p className="h3">{data.brand}</p>
-          <p className="h4">Rating: {data.rating}/5</p>
+          <p className="h4">Rating: {data.rating} ⭐</p>
           <p className="h3">Rs. {data.price}</p>
           <p className="h3 product-desc">{data.description}</p>
           <div className="buttons-row">
