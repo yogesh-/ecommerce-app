@@ -175,10 +175,10 @@ export const SignUp = () => {
             />
           </div>
 
-          <div class="check-row flex-row">
+          {/* <div class="check-row flex-row">
             <input type="checkbox" required />
             <p class="h4"> I accept Terms &#38; Conditions</p>
-          </div>
+          </div> */}
 
           <button class="btn" onClick={handleSubmit}>
             <p class="h3">Create New Account</p>

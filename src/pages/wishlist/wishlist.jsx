@@ -42,7 +42,7 @@ export const Wishlist = () => {
                       <p className="h5">{item.brand}</p>
                       <p className="h2">{item.title}</p>
                       <p className="h3">
-                        {item.price} <span>{item.original_price}</span>
+                        ₹{item.price} <span>₹{item.original_price}</span>
                       </p>
                       <div className="prod-buttons">
                         <button

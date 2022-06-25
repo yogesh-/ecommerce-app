@@ -56,22 +56,10 @@ export const Cart = () => {
                               {item.title}
                             </p>
                             <p class="h3">
-                              {item.price} <span>{item.original_price}</span>
+                              ₹{item.price} <span>₹{item.original_price}</span>
                             </p>
                             <p class="h3">50% OFF</p>
                             <div class="incrementor flex-row">
-                              <button
-                                class="material-icons-outlined"
-                                onClick={(e) =>
-                                  cartDispatch({
-                                    type: "INCREMENT",
-                                    payload: item,
-                                  })
-                                }
-                              >
-                                add
-                              </button>
-                              <p class="h4">Quantity:{item.quantity}</p>
                               <button
                                 class="material-icons-outlined"
                                 onClick={(e) =>
@@ -82,6 +70,18 @@ export const Cart = () => {
                                 }
                               >
                                 remove
+                              </button>
+                              <p class="h4">Quantity:{item.quantity}</p>
+                              <button
+                                class="material-icons-outlined"
+                                onClick={(e) =>
+                                  cartDispatch({
+                                    type: "INCREMENT",
+                                    payload: item,
+                                  })
+                                }
+                              >
+                                add
                               </button>
                             </div>
                             <button

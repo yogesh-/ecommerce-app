@@ -38,7 +38,7 @@ export const ProductDetails = () => {
           <p className="h1">{data.title}</p>
           <p className="h3">{data.brand}</p>
           <p className="h4">Rating: {data.rating} ⭐</p>
-          <p className="h3">Rs. {data.price}</p>
+          <p className="h3">₹ {data.price}</p>
           <p className="h3 product-desc">{data.description}</p>
           <div className="buttons-row">
             <button

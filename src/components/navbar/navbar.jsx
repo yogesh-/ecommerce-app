@@ -40,16 +40,6 @@ export const Navbar = () => {
       <div class="nav-items">
         <ul class="flex-row right-icons">
           <li>
-            <Link to="/login">
-              <button class="btn">
-                <p class="h4" onClick={logoutLoginHandler}>
-                  {navtoken ? "Logout" : "Login"}
-                </p>
-              </button>
-            </Link>
-          </li>
-
-          <li>
             <Link to="/wishlist">
               <div class="badge">
                 <span class="material-icons-outlined">favorite_border</span>
@@ -69,9 +59,13 @@ export const Navbar = () => {
           </li>
 
           <li>
-            <a href="/html/logout.html">
-              <span class="material-icons-outlined">logout</span>
-            </a>
+            <Link to="/login">
+              <button class="btn">
+                <p class="h4" onClick={logoutLoginHandler}>
+                  {navtoken ? "Logout" : "Login"}
+                </p>
+              </button>
+            </Link>
           </li>
         </ul>
       </div>

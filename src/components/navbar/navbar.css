@@ -1,3 +1,7 @@
 .right-icons li {
   justify-content: space-around;
 }
+
+.search-bar {
+  visibility: hidden;
+}

@@ -89,11 +89,11 @@ export const Login = () => {
               />
             </div>
 
-            <div class="check-row flex-row">
+            {/* <div class="check-row flex-row">
               <input type="checkbox" />
               <p class="h4">Remember Me</p>
               <p class="h4 forgot">Forgot your password</p>
-            </div>
+            </div> */}
 
             <div class="login-button">
               <button class="btn" onClick={loginHandler}>
