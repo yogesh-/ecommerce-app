@@ -8,15 +8,15 @@ export const Hero = () => {
       <div class="hero-text">
         <p class="h1">Power Your Morning Runs</p>
         <p class="h3">
-          Nike Airflow is the best shoe you can get to wake up every morning
-          excitedly for your runs.
+          SNEAKERS brings the best shoe collection you can get to wake up every
+          morning excitedly for your runs.
         </p>
         <div class="cta-buttons flex-row">
-          <Link to="/products">
+          {/* <Link to="/products">
             <button class="btn btn-primary">
               <span class="h4">BUY NOW</span>
             </button>
-          </Link>
+          </Link> */}
 
           <Link to="/products">
             <button class="btn btn-primary">

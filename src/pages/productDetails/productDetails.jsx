@@ -7,11 +7,12 @@ import { useWish } from "../../context/wishContext";
 import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export const ProductDetails = () => {
   const { productId } = useParams();
-  const { cartDispatch } = useCart();
-  const { wishDispatch } = useWish();
+  const { cartState, cartDispatch } = useCart();
+  const { wishState, wishDispatch } = useWish();
   const [data, setData] = useState({});
 
   const productCall = async () => {
@@ -27,6 +28,20 @@ export const ProductDetails = () => {
     productCall();
   });
 
+  const addToCart = () => {
+    cartDispatch({
+      type: "ADD_TO_CART",
+      payload: data,
+    });
+  };
+
+  const addToWishList = () => {
+    wishDispatch({
+      type: "ADD_TO_WISHLIST",
+      payload: data,
+    });
+  };
+
   return (
     <>
       <Navbar />
@@ -41,29 +56,31 @@ export const ProductDetails = () => {
           <p className="h3">₹ {data.price}</p>
           <p className="h3 product-desc">{data.description}</p>
           <div className="buttons-row">
-            <button
-              className="btn"
-              onClick={(e) =>
-                cartDispatch({
-                  type: "ADD_TO_CART",
-                  payload: data,
-                })
-              }
-            >
-              <p className="h4">Add to Cart</p>
-            </button>
+            {cartState.cartProducts.some((item) => item._id === data._id) ? (
+              <Link to="/cart">
+                {" "}
+                <button className="btn">
+                  <p className="h4">Go to Cart</p>
+                </button>
+              </Link>
+            ) : (
+              <button className="btn btn-secondary" onClick={addToCart}>
+                <p className="h4">Add to Cart</p>
+              </button>
+            )}
 
-            <button
-              className="btn btn-secondary"
-              onClick={(e) =>
-                wishDispatch({
-                  type: "ADD_TO_WISHLIST",
-                  payload: data,
-                })
-              }
-            >
-              <p className="h4">Add to Wishlist</p>
-            </button>
+            {wishState.wishProducts.some((item) => item._id === data._id) ? (
+              <Link to="/wishlist">
+                {" "}
+                <button className="btn btn-secondary">
+                  <p className="h4">Go to WishList</p>
+                </button>
+              </Link>
+            ) : (
+              <button className="btn" onClick={addToWishList}>
+                <p className="h4">Add to WishList</p>
+              </button>
+            )}
           </div>
         </div>
       </div>

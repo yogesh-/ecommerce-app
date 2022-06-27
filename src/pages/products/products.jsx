@@ -68,7 +68,6 @@ export const Products = () => {
                     />
                   </Link>
 
-                  {/* put the rating for product here */}
                   <div className="card-tag flex-row">
                     <p className="h4" style={{ color: "white" }}>
                       {" "}
