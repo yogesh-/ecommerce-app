@@ -5,7 +5,7 @@ import "./cart.css";
 import { Link } from "react-router-dom";
 
 export const Cart = () => {
-  const { wishDispatch } = useWish();
+  const { wishState, wishDispatch } = useWish();
   const { cartState, cartDispatch } = useCart();
   const cartData = cartState.cartProducts;
 
@@ -60,18 +60,25 @@ export const Cart = () => {
                             </p>
                             <p class="h3">50% OFF</p>
                             <div class="incrementor flex-row">
-                              <button
-                                class="material-icons-outlined"
-                                onClick={(e) =>
-                                  cartDispatch({
-                                    type: "DECREMENT",
-                                    payload: item,
-                                  })
-                                }
-                              >
-                                remove
-                              </button>
+                              {item.quantity === 0 ? (
+                                <button class="material-icons-outlined">
+                                  remove
+                                </button>
+                              ) : (
+                                <button
+                                  class="material-icons-outlined"
+                                  onClick={(e) =>
+                                    cartDispatch({
+                                      type: "DECREMENT",
+                                      payload: item,
+                                    })
+                                  }
+                                >
+                                  remove
+                                </button>
+                              )}
                               <p class="h4">Quantity:{item.quantity}</p>
+
                               <button
                                 class="material-icons-outlined"
                                 onClick={(e) =>
@@ -96,17 +103,27 @@ export const Cart = () => {
                               <p class="h4">Remove from Cart</p>
                             </button>
 
-                            <button
-                              class="btn btn-secondary"
-                              onClick={(e) =>
-                                wishDispatch({
-                                  type: "ADD_TO_WISHLIST",
-                                  payload: item,
-                                })
-                              }
-                            >
-                              <p class="h4">Add to Wishlist</p>
-                            </button>
+                            {wishState.wishProducts.some(
+                              (i) => i._id === item._id
+                            ) ? (
+                              <Link to="/wishlist">
+                                <button class="btn">
+                                  <p class="h4">Go to Wishlist</p>
+                                </button>
+                              </Link>
+                            ) : (
+                              <button
+                                class="btn btn-secondary"
+                                onClick={(e) =>
+                                  wishDispatch({
+                                    type: "ADD_TO_WISHLIST",
+                                    payload: item,
+                                  })
+                                }
+                              >
+                                <p class="h4">Add to Wishlist</p>
+                              </button>
+                            )}
                           </div>
                         </div>
                       </div>

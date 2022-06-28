@@ -7,7 +7,7 @@ import "./wishlist.css";
 
 export const Wishlist = () => {
   const { wishState, wishDispatch } = useWish();
-  const { cartDispatch } = useCart();
+  const { cartState, cartDispatch } = useCart();
   const finalWish = wishState.wishProducts;
 
   if (finalWish.length === 0) {
@@ -45,17 +45,27 @@ export const Wishlist = () => {
                         ₹{item.price} <span>₹{item.original_price}</span>
                       </p>
                       <div className="prod-buttons">
-                        <button
-                          className="btn"
-                          onClick={(e) =>
-                            cartDispatch({
-                              type: "ADD_TO_CART",
-                              payload: item,
-                            })
-                          }
-                        >
-                          <p className="h4">Add to Cart</p>
-                        </button>
+                        {cartState.cartProducts.some(
+                          (i) => i._id === item._id
+                        ) ? (
+                          <Link to="/cart">
+                            <button class="btn btn-secondary">
+                              <p class="h4">Go to Cart</p>
+                            </button>
+                          </Link>
+                        ) : (
+                          <button
+                            className="btn"
+                            onClick={(e) =>
+                              cartDispatch({
+                                type: "ADD_TO_CART",
+                                payload: item,
+                              })
+                            }
+                          >
+                            <p className="h4">Add to Cart</p>
+                          </button>
+                        )}
 
                         <button
                           className="btn btn-secondary"

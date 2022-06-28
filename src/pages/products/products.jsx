@@ -32,8 +32,8 @@ export const Products = () => {
   };
 
   const { state } = useFilter();
-  const { cartDispatch } = useCart();
-  const { wishDispatch } = useWish();
+  const { cartState, cartDispatch } = useCart();
+  const { wishState, wishDispatch } = useWish();
 
   const getPriceItems = priceItems(data, state.price);
   const getCategoryItems = categoryItems(
@@ -54,7 +54,6 @@ export const Products = () => {
       <Navbar />
       <Filter />
       <main>
-        {/* <p className="h2 prod-headline">Showing All Products...</p> */}
         <div className="product-listing-products flex-row-prod">
           {getFinalItems.map((item, index) => {
             return (
@@ -82,26 +81,46 @@ export const Products = () => {
                       ₹{item.price} <span>₹{item.original_price}</span>
                     </p>
                     <div className="prod-buttons">
-                      <button
-                        className="btn"
-                        onClick={(e) =>
-                          cartDispatch({ type: "ADD_TO_CART", payload: item })
-                        }
-                      >
-                        <p className="h4">Add to Cart</p>
-                      </button>
+                      {cartState.cartProducts.some(
+                        (i) => i._id === item._id
+                      ) ? (
+                        <Link to="/cart">
+                          <button class="btn btn-secondary">
+                            <p class="h4">Go to Cart</p>
+                          </button>
+                        </Link>
+                      ) : (
+                        <button
+                          className="btn"
+                          onClick={(e) =>
+                            cartDispatch({ type: "ADD_TO_CART", payload: item })
+                          }
+                        >
+                          <p className="h4">Add to Cart</p>
+                        </button>
+                      )}
 
-                      <button
-                        className="btn btn-secondary"
-                        onClick={(e) =>
-                          wishDispatch({
-                            type: "ADD_TO_WISHLIST",
-                            payload: item,
-                          })
-                        }
-                      >
-                        <p className="h4">Add to Wishlist</p>
-                      </button>
+                      {wishState.wishProducts.some(
+                        (i) => i._id === item._id
+                      ) ? (
+                        <Link to="/wishlist">
+                          <button className="btn">
+                            <p className="h4">Go to Wishlist</p>
+                          </button>
+                        </Link>
+                      ) : (
+                        <button
+                          className="btn btn-secondary"
+                          onClick={(e) =>
+                            wishDispatch({
+                              type: "ADD_TO_WISHLIST",
+                              payload: item,
+                            })
+                          }
+                        >
+                          <p className="h4">Add to Wishlist</p>
+                        </button>
+                      )}
                     </div>
                   </div>
                 </div>
