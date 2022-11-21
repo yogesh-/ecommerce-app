@@ -13,7 +13,7 @@ export const Home = () => {
 
         <Navbar />
 
-        {/* <!-- Hero section --> */}
+        {/* <!-- Hero section -> */}
 
         <Hero />
 
